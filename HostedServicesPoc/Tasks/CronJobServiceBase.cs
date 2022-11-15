@@ -28,7 +28,7 @@ namespace HostedServicesPoc.Tasks
         {
             _log.LogInformation($"{GetType()} is Starting");
 
-        #if DEBUG
+        #if !DEBUG
             if (_hostedServiceTaskSettingsBase.Active)
             {
                 await ExecuteTaskAsync(cancellationToken);

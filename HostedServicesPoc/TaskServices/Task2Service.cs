@@ -6,10 +6,12 @@ namespace HostedServicesPoc.TaskServices
 {
     public class Task2Service : ITask2Service
     {
-        public Task StartAsync(CancellationToken cancellationToken)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine("Task2 executing");
-            return Task.CompletedTask;
+            GlobalVariables.TraceLogId = Guid.NewGuid();
+            Console.WriteLine($"Task2 executing with traceLogId = {GlobalVariables.TraceLogId}");
+            Console.WriteLine($"Task2 ending = {GlobalVariables.TraceLogId}");
         }
     }
 }
