@@ -27,19 +27,10 @@ namespace HostedServicesPoc.Tasks
         public virtual async Task StartAsync(CancellationToken cancellationToken)
         {
             _log.LogInformation($"{GetType()} is Starting");
-
-        #if !DEBUG
-            if (_hostedServiceTaskSettingsBase.Active)
-            {
-                await ExecuteTaskAsync(cancellationToken);
-            }
-        #else
             if (_hostedServiceTaskSettingsBase.Active)
             {
                 await ScheduleJob(cancellationToken);
             }
-
-        #endif
         }
 
         public Task StopAsync(CancellationToken cancellationToken)

@@ -8,7 +8,7 @@ namespace HostedServicesPoc.TaskServices
     {
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            GlobalVariables.TraceLogId = Guid.NewGuid();
+            using var traceIdScope = GlobalVariables.SetTraceLogId(Guid.NewGuid());
             Console.WriteLine($"Task1 executing with traceLogId = {GlobalVariables.TraceLogId}");
             Console.WriteLine($"Task1 will wait 5 seconds = {GlobalVariables.TraceLogId}");
             await Task.Delay(5000, cancellationToken);

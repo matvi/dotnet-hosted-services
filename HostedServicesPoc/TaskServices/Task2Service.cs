@@ -9,7 +9,7 @@ namespace HostedServicesPoc.TaskServices
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine("Task2 executing");
-            GlobalVariables.TraceLogId = Guid.NewGuid();
+            using var traceIdScope = GlobalVariables.SetTraceLogId(Guid.NewGuid());
             Console.WriteLine($"Task2 executing with traceLogId = {GlobalVariables.TraceLogId}");
             Console.WriteLine($"Task2 ending = {GlobalVariables.TraceLogId}");
         }

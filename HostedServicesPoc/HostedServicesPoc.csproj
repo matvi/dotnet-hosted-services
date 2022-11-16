@@ -6,6 +6,7 @@
 
     <ItemGroup>
         <PackageReference Include="Cronos" Version="0.7.1" />
+        <PackageReference Include="Nito.Disposables" Version="3.0.0-pre01" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
